@@ -111,7 +111,7 @@ public class BidService {
 - 동일 경매에 대한 **중복 갱신**과 **Race Condition** 문제를 방지하여 **최종 입찰가**와 **낙찰자 정보**가 일관되게 저장
 
 &nbsp;
-## 실시간 알림
+### 실시간 알림
 
 <img width="1100" alt="실시간 알림" src="https://github.com/user-attachments/assets/0a23279a-1130-4479-89cc-64f81801954d" />
 
@@ -122,7 +122,7 @@ public class BidService {
 - 사용자가 알림을 확인하면 **읽음 상태**로 변경하여 이미 확인한 알림과 새로 도착한 알림을 구분할 수 있도록 구현
 
 &nbsp;
-## 인증 및 인가
+### 인증 및 인가
 
 <img width="1100" alt="JWT 인증 및 인가" src="https://github.com/user-attachments/assets/65bfbc22-096c-4c69-850f-9415a2ada8c1" />
 
@@ -134,7 +134,7 @@ public class BidService {
 - **인증되지 않은 요청**이나 **권한이 없는 요청**은 비즈니스 로직 실행 전에 차단하여 **사용자 데이터**가 노출되거나 변경되지 않도록 처리
 
 &nbsp;
-## 마이페이지
+### 마이페이지
 
 <img width="1100" alt="image" src="https://github.com/user-attachments/assets/729dad27-80d7-4c74-bbcf-04c504a1f112" />
 
