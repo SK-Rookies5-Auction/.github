@@ -310,7 +310,7 @@ public class BidService {
 ## 🔗 Repository
 - [**Backend Repository**](https://github.com/SK-Rookies5-Auction/backend)
 - [**Frontend Repository**](https://github.com/SK-Rookies5-Auction/frontend)
-- [**Infra Repository**](https://github.com/SK-Rookies5-Auction/infar)
+- [**Infra Repository**](https://github.com/SK-Rookies5-Auction/infra)
 
 &nbsp;
 ## 💻 Developers
