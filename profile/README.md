@@ -144,7 +144,7 @@ public class BidService {
 
 &nbsp;
 ## 🚀 Infrastructure & Deployment
-<img width="1100" alt="스크린샷 2026-05-14 161959" src="https://github.com/user-attachments/assets/40a682ca-d015-4d7e-a90c-9b8faa4727ec" />
+<img width="2560" height="1480" alt="macta-infra" src="https://github.com/user-attachments/assets/be48e275-d8d8-40ac-8a6b-e8f74a9eba90" />
 
 &nbsp;
 ### AWS 네트워크 분리
