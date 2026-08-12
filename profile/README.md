@@ -104,7 +104,7 @@ public class BidService {
     }
 }
 ```
-- 경매 마감 직전에 여러 사용자의 **입찰 요청**이 동시에 들어오는 상황에서도 **데이터 무결성**을 보장하기 위해 **낙관적 락(Optimistic Lock)**을 적용
+- 경매 마감 직전에 여러 사용자의 **입찰 요청**이 동시에 들어오는 상황에서도 **데이터 무결성**을 보장하기 위해 **낙관적 락**(Optimistic Lock)을 적용
 - **Auction 엔티티**에 `@Version` 필드를 두어 같은 경매 데이터를 동시에 수정하려는 요청이 발생하면 **버전 충돌**을 감지
 - 입찰 처리 시 **현재 최고가 검증**과 **최고가 갱신**을 하나의 **트랜잭션** 안에서 수행하여 검증 시점과 저장 시점의 **데이터 불일치**를 줄임
 - 동시에 들어온 입찰 요청 중 먼저 **커밋**된 요청만 경매 정보를 갱신하고, 이후 충돌이 발생한 요청은 **실패 처리**되어 잘못된 최고가 덮어쓰기를 방지
@@ -144,13 +144,13 @@ public class BidService {
 
 &nbsp;
 ## 🚀 Infrastructure & Deployment
-<img width="2562" height="1480" alt="macta-infra" src="https://github.com/user-attachments/assets/581f7fae-68bb-4d9e-996f-87c5a288a2d0" />
+<img width="2560" height="1480" alt="MACTA-infra" src="https://github.com/user-attachments/assets/b2092799-1240-4cc4-8439-412b6a924086" />
 
 &nbsp;
 ### AWS 네트워크 분리
 <img width="1100" alt="mermaid-diagram-guest-low" src="https://github.com/user-attachments/assets/d1d51fbe-c162-45d5-8463-c563578fe9d7" />
 
-- **Public Subnet**에는 외부 요청을 수신하는 **ALB(Application Load Balancer)**와 Private Subnet의 아웃바운드 통신을 위한 **NAT Gateway**를 배치
+- **Public Subnet**에는 외부 요청을 수신하는 **ALB**(Application Load Balancer)와 Private Subnet의 아웃바운드 통신을 위한 **NAT Gateway**를 배치
 - **Private Subnet**에는 실제 애플리케이션이 실행되는 **EKS**, 세션 및 실시간 처리에 활용되는 **Redis**, 영속 데이터를 저장하는 **RDS MariaDB**를 구성하여 내부망 기반으로 운영
 - 외부 사용자는 **ALB까지만 접근** 가능하며, 애플리케이션 Pod와 데이터베이스는 **Private 네트워크 내부**에서만 통신하도록 분리
 - 데이터베이스와 캐시 계층을 외부에 직접 노출하지 않아 **공격 표면을 최소화**하고, 장애 발생 시에도 네트워크 계층별로 문제 범위를 분리해 대응할 수 있도록 설계
@@ -202,7 +202,7 @@ public class BidService {
 &nbsp;
 ### IRSA 기반 AWS 권한 관리
 
-- Pod 내부에 장기 **Access Key**를 직접 저장하지 않고, **IRSA(IAM Roles for Service Accounts)**를 적용하여 AWS 권한을 부여
+- Pod 내부에 장기 **Access Key**를 직접 저장하지 않고, **IRSA**(IAM Roles for Service Accounts)를 적용하여 AWS 권한을 부여
 - **Kubernetes ServiceAccount**와 **IAM Role**을 연결해 특정 Pod가 필요한 AWS 리소스에만 접근할 수 있도록 **최소 권한 원칙**을 적용
 - 예를 들어 S3 업로드가 필요한 Pod에는 S3 관련 권한만 부여하고, 다른 Pod에는 해당 권한이 전달되지 않도록 역할을 분리
 - Access Key 유출 위험을 제거하고, 워크로드 단위로 권한을 추적할 수 있어 **보안성**과 **감사 가능성**을 높임
